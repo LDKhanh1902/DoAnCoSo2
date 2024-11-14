@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnLuuThayDoi = new System.Windows.Forms.Button();
             this.dtpNgayVaoLam = new System.Windows.Forms.DateTimePicker();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
@@ -45,7 +45,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtCCCD = new System.Windows.Forms.TextBox();
-            this.btnLuuThayDoi = new System.Windows.Forms.Button();
+            this.btnDoiAnh = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDoiMaKhau = new System.Windows.Forms.Button();
             this.txtTenHienthi = new System.Windows.Forms.TextBox();
@@ -78,7 +78,7 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.groupBox3);
-            this.panel1.Controls.Add(this.btnLuuThayDoi);
+            this.panel1.Controls.Add(this.btnDoiAnh);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.labTenHienThi);
             this.panel1.Controls.Add(this.ptbAnhNhanVien);
@@ -90,7 +90,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnLuu);
+            this.groupBox3.Controls.Add(this.btnLuuThayDoi);
             this.groupBox3.Controls.Add(this.dtpNgayVaoLam);
             this.groupBox3.Controls.Add(this.dtpNgaySinh);
             this.groupBox3.Controls.Add(this.cbbGioiTinh);
@@ -112,15 +112,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin cơ bản";
             // 
-            // btnLuu
+            // btnLuuThayDoi
             // 
-            this.btnLuu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnLuu.Location = new System.Drawing.Point(690, 151);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(265, 40);
-            this.btnLuu.TabIndex = 4;
-            this.btnLuu.Text = "Lưu Thay Đổi";
-            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuuThayDoi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnLuuThayDoi.Location = new System.Drawing.Point(690, 151);
+            this.btnLuuThayDoi.Name = "btnLuuThayDoi";
+            this.btnLuuThayDoi.Size = new System.Drawing.Size(265, 40);
+            this.btnLuuThayDoi.TabIndex = 4;
+            this.btnLuuThayDoi.Text = "Lưu Thay Đổi";
+            this.btnLuuThayDoi.UseVisualStyleBackColor = true;
+            this.btnLuuThayDoi.Click += new System.EventHandler(this.btnLuuThayDoi_Click);
             // 
             // dtpNgayVaoLam
             // 
@@ -229,16 +230,16 @@
             this.txtCCCD.Size = new System.Drawing.Size(266, 26);
             this.txtCCCD.TabIndex = 1;
             // 
-            // btnLuuThayDoi
+            // btnDoiAnh
             // 
-            this.btnLuuThayDoi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnLuuThayDoi.Location = new System.Drawing.Point(68, 267);
-            this.btnLuuThayDoi.Name = "btnLuuThayDoi";
-            this.btnLuuThayDoi.Size = new System.Drawing.Size(171, 42);
-            this.btnLuuThayDoi.TabIndex = 2;
-            this.btnLuuThayDoi.Text = "Đổi ảnh";
-            this.btnLuuThayDoi.UseVisualStyleBackColor = true;
-            this.btnLuuThayDoi.Click += new System.EventHandler(this.btnLuuThayDoi_Click);
+            this.btnDoiAnh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDoiAnh.Location = new System.Drawing.Point(68, 267);
+            this.btnDoiAnh.Name = "btnDoiAnh";
+            this.btnDoiAnh.Size = new System.Drawing.Size(171, 42);
+            this.btnDoiAnh.TabIndex = 2;
+            this.btnDoiAnh.Text = "Đổi ảnh";
+            this.btnDoiAnh.UseVisualStyleBackColor = true;
+            this.btnDoiAnh.Click += new System.EventHandler(this.btnDoiAnh_Click);
             // 
             // groupBox1
             // 
@@ -338,7 +339,6 @@
             this.ptbAnhNhanVien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbAnhNhanVien.TabIndex = 0;
             this.ptbAnhNhanVien.TabStop = false;
-            this.ptbAnhNhanVien.Click += new System.EventHandler(this.ptbAnhNhanVien_Click);
             // 
             // btnThoat
             // 
@@ -388,14 +388,14 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labTenHienThi;
         private System.Windows.Forms.PictureBox ptbAnhNhanVien;
-        private System.Windows.Forms.Button btnLuuThayDoi;
+        private System.Windows.Forms.Button btnDoiAnh;
         private System.Windows.Forms.TextBox txtTenHienthi;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txttenDangNhap;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtLoaiTaiKhoan;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.Button btnLuuThayDoi;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.ComboBox cbbGioiTinh;
         private System.Windows.Forms.TextBox txtDiaChi;

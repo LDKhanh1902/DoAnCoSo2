@@ -68,21 +68,38 @@ namespace qunLyKhachSan
             }
         }
 
+        private void btnDoiAnh_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK) 
+            { 
+                selectedImagePath = openFileDialog.FileName; 
+                ptbAnhNhanVien.Image = Image.FromFile(selectedImagePath); 
+            }
+        }
+
         private void btnLuuThayDoi_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(selectedImagePath))
             {
                 string destinationFolderPath = @"D:\DoAn2\qunLyKhachSan\qunLyKhachSan\anh_nv";
-                string fileName = Path.GetFileName(selectedImagePath);
+                string fileName = $"IMG_{txtTenHienthi.Text.Replace(" ", "_")}{Path.GetExtension(selectedImagePath)}";
                 string destinationFilePath = Path.Combine(destinationFolderPath, fileName);
 
                 try
                 {
-                    File.Copy(selectedImagePath, destinationFilePath, true);
-                    ptbAnhNhanVien.Image = Image.FromFile(destinationFilePath);
+                    // Xóa ảnh cũ nếu tồn tại
+                    var employee = db.Employees.FirstOrDefault(em => em.EMAIL == User.UserName);
+                    if (employee != null && !string.IsNullOrEmpty(employee.URLIMAGE) && File.Exists(employee.URLIMAGE))
+                    {
+                        // Giải phóng tài nguyên của PictureBox trước khi xóa ảnh
+                        ptbAnhNhanVien.Image.Dispose();
+                        File.Delete(employee.URLIMAGE);
+                    }
 
-                    int employeeId = db.Employees.Where(em => em.EMAIL == User.UserName).Select(em => em.ID).FirstOrDefault();
-                    var employee = db.Employees.FirstOrDefault(em => em.ID == employeeId);
+                    // Sao chép ảnh mới vào thư mục đích
+                    File.Copy(selectedImagePath, destinationFilePath, true);
+
+                    // Cập nhật URLIMAGE của nhân viên
                     if (employee != null)
                     {
                         employee.URLIMAGE = destinationFilePath;
@@ -105,13 +122,5 @@ namespace qunLyKhachSan
             }
         }
 
-        private void ptbAnhNhanVien_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                selectedImagePath = openFileDialog.FileName;
-                ptbAnhNhanVien.Image = Image.FromFile(selectedImagePath);
-            }
-        }
     }
 }
