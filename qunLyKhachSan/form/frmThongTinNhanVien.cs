@@ -60,7 +60,7 @@ namespace qunLyKhachSan
                 cbbGioiTinh.Text = info.GENDER;
                 txtDiaChi.Text = info.ADDRESS;
 
-                // Hiển thị ảnh hiện tại của nhân viên
+                // Hiển thị ảnh hiện tại của nhân sb
                 if (!string.IsNullOrEmpty(info.URLIMAGE) && File.Exists(info.URLIMAGE))
                 {
                     ptbAnhNhanVien.Image = Image.FromFile(info.URLIMAGE);
