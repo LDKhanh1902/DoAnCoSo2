@@ -45,7 +45,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTenPhong = new System.Windows.Forms.TextBox();
-            this.txtLoaiPhong = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtMaPhong = new System.Windows.Forms.TextBox();
@@ -56,6 +55,7 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbbLoaiPhong = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -152,6 +152,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbbLoaiPhong);
             this.groupBox2.Controls.Add(this.txtSoNguoiToiDa);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtTrangThai);
@@ -159,7 +160,6 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtTenPhong);
-            this.groupBox2.Controls.Add(this.txtLoaiPhong);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtMaPhong);
@@ -230,14 +230,6 @@
             this.txtTenPhong.Name = "txtTenPhong";
             this.txtTenPhong.Size = new System.Drawing.Size(167, 26);
             this.txtTenPhong.TabIndex = 1;
-            // 
-            // txtLoaiPhong
-            // 
-            this.txtLoaiPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLoaiPhong.Location = new System.Drawing.Point(191, 50);
-            this.txtLoaiPhong.Name = "txtLoaiPhong";
-            this.txtLoaiPhong.Size = new System.Drawing.Size(167, 26);
-            this.txtLoaiPhong.TabIndex = 1;
             // 
             // label4
             // 
@@ -334,6 +326,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã Phòng:";
             // 
+            // cbbLoaiPhong
+            // 
+            this.cbbLoaiPhong.FormattingEnabled = true;
+            this.cbbLoaiPhong.Location = new System.Drawing.Point(191, 50);
+            this.cbbLoaiPhong.Name = "cbbLoaiPhong";
+            this.cbbLoaiPhong.Size = new System.Drawing.Size(167, 28);
+            this.cbbLoaiPhong.TabIndex = 2;
+            // 
             // frmQuanLyPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -376,7 +376,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtTenPhong;
-        private System.Windows.Forms.TextBox txtLoaiPhong;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMaPhong;
@@ -389,5 +388,6 @@
         private System.Windows.Forms.Button btnSuaPhong;
         private System.Windows.Forms.Button btnThemPhong;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cbbLoaiPhong;
     }
 }

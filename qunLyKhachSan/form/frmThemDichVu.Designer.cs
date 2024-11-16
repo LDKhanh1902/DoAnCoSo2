@@ -34,11 +34,9 @@
             this.btnDong = new System.Windows.Forms.Button();
             this.btnThemDichVu = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbbLoaiDichVu = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtGia = new System.Windows.Forms.TextBox();
             this.txtTenDichVu = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -90,11 +88,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbbLoaiDichVu);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtGia);
             this.groupBox2.Controls.Add(this.txtTenDichVu);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.groupBox2.Location = new System.Drawing.Point(4, 3);
@@ -103,14 +99,6 @@
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin dịch vụ";
-            // 
-            // cbbLoaiDichVu
-            // 
-            this.cbbLoaiDichVu.FormattingEnabled = true;
-            this.cbbLoaiDichVu.Location = new System.Drawing.Point(6, 104);
-            this.cbbLoaiDichVu.Name = "cbbLoaiDichVu";
-            this.cbbLoaiDichVu.Size = new System.Drawing.Size(171, 28);
-            this.cbbLoaiDichVu.TabIndex = 2;
             // 
             // label5
             // 
@@ -136,15 +124,6 @@
             this.txtTenDichVu.Name = "txtTenDichVu";
             this.txtTenDichVu.Size = new System.Drawing.Size(167, 26);
             this.txtTenDichVu.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(2, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Loại dịch vụ:";
             // 
             // label3
             // 
@@ -207,11 +186,9 @@
         private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Button btnThemDichVu;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cbbLoaiDichVu;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtGia;
         private System.Windows.Forms.TextBox txtTenDichVu;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Panel panel1;
