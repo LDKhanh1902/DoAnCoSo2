@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemDichVu));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnDong = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.btnThemDichVu = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSua = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -58,7 +59,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnDong);
+            this.groupBox3.Controls.Add(this.btnXoa);
+            this.groupBox3.Controls.Add(this.btnSua);
             this.groupBox3.Controls.Add(this.btnThemDichVu);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.groupBox3.Location = new System.Drawing.Point(4, 155);
@@ -68,23 +70,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức năng";
             // 
-            // btnDong
+            // btnXoa
             // 
-            this.btnDong.Location = new System.Drawing.Point(226, 35);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(160, 46);
-            this.btnDong.TabIndex = 0;
-            this.btnDong.Text = "Đóng";
-            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnXoa.Location = new System.Drawing.Point(289, 35);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(124, 46);
+            this.btnXoa.TabIndex = 0;
+            this.btnXoa.Text = "Xóa dịch vụ";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThemDichVu
             // 
             this.btnThemDichVu.Location = new System.Drawing.Point(11, 35);
             this.btnThemDichVu.Name = "btnThemDichVu";
-            this.btnThemDichVu.Size = new System.Drawing.Size(160, 46);
+            this.btnThemDichVu.Size = new System.Drawing.Size(124, 46);
             this.btnThemDichVu.TabIndex = 0;
             this.btnThemDichVu.Text = "Thêm dịch vụ";
             this.btnThemDichVu.UseVisualStyleBackColor = true;
+            this.btnThemDichVu.Click += new System.EventHandler(this.btnThemDichVu_Click);
             // 
             // groupBox2
             // 
@@ -157,6 +161,16 @@
             this.panel1.Size = new System.Drawing.Size(432, 262);
             this.panel1.TabIndex = 23;
             // 
+            // btnSua
+            // 
+            this.btnSua.Location = new System.Drawing.Point(150, 35);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(124, 46);
+            this.btnSua.TabIndex = 0;
+            this.btnSua.Text = "Sửa dịch vụ";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
             // frmThemDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -170,6 +184,7 @@
             this.Name = "frmThemDichVu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmThemDichVu";
+            this.Load += new System.EventHandler(this.frmThemDichVu_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -183,7 +198,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThemDichVu;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
@@ -192,5 +207,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnSua;
     }
 }

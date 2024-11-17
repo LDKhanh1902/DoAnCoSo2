@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyDichVu));
-            this.txtCapNhatPhong = new System.Windows.Forms.Button();
-            this.btnSuaPhong = new System.Windows.Forms.Button();
-            this.btnThemPhong = new System.Windows.Forms.Button();
+            this.btnCapNhatDVPhong = new System.Windows.Forms.Button();
+            this.btnSuaDVPhong = new System.Windows.Forms.Button();
+            this.btnTenDVPhong = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDong = new System.Windows.Forms.Button();
             this.txtMaDichVu = new System.Windows.Forms.TextBox();
@@ -44,10 +44,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbbTemDichVu = new System.Windows.Forms.ComboBox();
+            this.cbbTenDichVu = new System.Windows.Forms.ComboBox();
             this.cbbMaPhong = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDichVu = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,37 +55,40 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDichVu)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtCapNhatPhong
+            // btnCapNhatDVPhong
             // 
-            this.txtCapNhatPhong.Location = new System.Drawing.Point(11, 96);
-            this.txtCapNhatPhong.Name = "txtCapNhatPhong";
-            this.txtCapNhatPhong.Size = new System.Drawing.Size(160, 46);
-            this.txtCapNhatPhong.TabIndex = 0;
-            this.txtCapNhatPhong.Text = "Cập nhật phòng";
-            this.txtCapNhatPhong.UseVisualStyleBackColor = true;
+            this.btnCapNhatDVPhong.Location = new System.Drawing.Point(11, 96);
+            this.btnCapNhatDVPhong.Name = "btnCapNhatDVPhong";
+            this.btnCapNhatDVPhong.Size = new System.Drawing.Size(160, 46);
+            this.btnCapNhatDVPhong.TabIndex = 0;
+            this.btnCapNhatDVPhong.Text = "Cập nhật phòng";
+            this.btnCapNhatDVPhong.UseVisualStyleBackColor = true;
+            this.btnCapNhatDVPhong.Click += new System.EventHandler(this.btnCapNhatDVPhong_Click);
             // 
-            // btnSuaPhong
+            // btnSuaDVPhong
             // 
-            this.btnSuaPhong.Location = new System.Drawing.Point(11, 160);
-            this.btnSuaPhong.Name = "btnSuaPhong";
-            this.btnSuaPhong.Size = new System.Drawing.Size(160, 46);
-            this.btnSuaPhong.TabIndex = 0;
-            this.btnSuaPhong.Text = "Sửa phòng";
-            this.btnSuaPhong.UseVisualStyleBackColor = true;
+            this.btnSuaDVPhong.Location = new System.Drawing.Point(11, 160);
+            this.btnSuaDVPhong.Name = "btnSuaDVPhong";
+            this.btnSuaDVPhong.Size = new System.Drawing.Size(160, 46);
+            this.btnSuaDVPhong.TabIndex = 0;
+            this.btnSuaDVPhong.Text = "Sửa phòng";
+            this.btnSuaDVPhong.UseVisualStyleBackColor = true;
+            this.btnSuaDVPhong.Click += new System.EventHandler(this.btnSuaDVPhong_Click);
             // 
-            // btnThemPhong
+            // btnTenDVPhong
             // 
-            this.btnThemPhong.Location = new System.Drawing.Point(11, 35);
-            this.btnThemPhong.Name = "btnThemPhong";
-            this.btnThemPhong.Size = new System.Drawing.Size(160, 46);
-            this.btnThemPhong.TabIndex = 0;
-            this.btnThemPhong.Text = "Thêm phòng";
-            this.btnThemPhong.UseVisualStyleBackColor = true;
+            this.btnTenDVPhong.Location = new System.Drawing.Point(11, 35);
+            this.btnTenDVPhong.Name = "btnTenDVPhong";
+            this.btnTenDVPhong.Size = new System.Drawing.Size(160, 46);
+            this.btnTenDVPhong.TabIndex = 0;
+            this.btnTenDVPhong.Text = "Thêm phòng";
+            this.btnTenDVPhong.UseVisualStyleBackColor = true;
+            this.btnTenDVPhong.Click += new System.EventHandler(this.btnTenDVPhong_Click);
             // 
             // label5
             // 
@@ -177,9 +180,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnDong);
-            this.groupBox3.Controls.Add(this.txtCapNhatPhong);
-            this.groupBox3.Controls.Add(this.btnSuaPhong);
-            this.groupBox3.Controls.Add(this.btnThemPhong);
+            this.groupBox3.Controls.Add(this.btnCapNhatDVPhong);
+            this.groupBox3.Controls.Add(this.btnSuaDVPhong);
+            this.groupBox3.Controls.Add(this.btnTenDVPhong);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.groupBox3.Location = new System.Drawing.Point(206, 114);
             this.groupBox3.Name = "groupBox3";
@@ -190,7 +193,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbbTemDichVu);
+            this.groupBox2.Controls.Add(this.cbbTenDichVu);
             this.groupBox2.Controls.Add(this.cbbMaPhong);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtMaDichVu);
@@ -206,13 +209,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin phòng";
             // 
-            // cbbTemDichVu
+            // cbbTenDichVu
             // 
-            this.cbbTemDichVu.FormattingEnabled = true;
-            this.cbbTemDichVu.Location = new System.Drawing.Point(6, 183);
-            this.cbbTemDichVu.Name = "cbbTemDichVu";
-            this.cbbTemDichVu.Size = new System.Drawing.Size(171, 28);
-            this.cbbTemDichVu.TabIndex = 2;
+            this.cbbTenDichVu.FormattingEnabled = true;
+            this.cbbTenDichVu.Location = new System.Drawing.Point(6, 183);
+            this.cbbTenDichVu.Name = "cbbTenDichVu";
+            this.cbbTenDichVu.Size = new System.Drawing.Size(171, 28);
+            this.cbbTenDichVu.TabIndex = 2;
             // 
             // cbbMaPhong
             // 
@@ -224,7 +227,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dataGridView1);
+            this.groupBox4.Controls.Add(this.dgvDichVu);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.groupBox4.Location = new System.Drawing.Point(386, 3);
             this.groupBox4.Name = "groupBox4";
@@ -233,15 +236,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách dịch vụ";
             // 
-            // dataGridView1
+            // dgvDichVu
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 25);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(682, 375);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDichVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDichVu.Location = new System.Drawing.Point(6, 25);
+            this.dgvDichVu.Name = "dgvDichVu";
+            this.dgvDichVu.RowHeadersWidth = 51;
+            this.dgvDichVu.RowTemplate.Height = 24;
+            this.dgvDichVu.Size = new System.Drawing.Size(682, 375);
+            this.dgvDichVu.TabIndex = 0;
+            this.dgvDichVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDichVu_CellClick);
             // 
             // groupBox1
             // 
@@ -304,11 +308,12 @@
             this.Name = "frmQuanLyDichVu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmQuanLyDichVu";
+            this.Load += new System.EventHandler(this.frmQuanLyDichVu_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDichVu)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -320,9 +325,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.Button txtCapNhatPhong;
-        private System.Windows.Forms.Button btnSuaPhong;
-        private System.Windows.Forms.Button btnThemPhong;
+        private System.Windows.Forms.Button btnCapNhatDVPhong;
+        private System.Windows.Forms.Button btnSuaDVPhong;
+        private System.Windows.Forms.Button btnTenDVPhong;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.TextBox txtMaDichVu;
@@ -336,11 +341,11 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDichVu;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbbTemDichVu;
+        private System.Windows.Forms.ComboBox cbbTenDichVu;
         private System.Windows.Forms.ComboBox cbbMaPhong;
     }
 }

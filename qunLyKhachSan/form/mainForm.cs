@@ -65,5 +65,10 @@ namespace qunLyKhachSan
         {
             new frmThongTinNhanVien().Show();
         }
+
+        private void btnQLDichVu_Click(object sender, EventArgs e)
+        {
+            new frmQuanLyDichVu().Show();
+        }
     }
 }

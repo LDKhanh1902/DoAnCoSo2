@@ -32,7 +32,7 @@
             this.btnThoat_frmMain = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDSDatPhong = new System.Windows.Forms.DataGridView();
             this.btnXemChiTiet = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnDong = new System.Windows.Forms.Button();
@@ -81,7 +81,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSDatPhong)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -118,7 +118,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dgvDSDatPhong);
             this.groupBox3.Controls.Add(this.btnXemChiTiet);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
@@ -129,15 +129,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh Sách Đặt Phòng";
             // 
-            // dataGridView1
+            // dgvDSDatPhong
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 26);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(414, 448);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvDSDatPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSDatPhong.Location = new System.Drawing.Point(6, 26);
+            this.dgvDSDatPhong.Name = "dgvDSDatPhong";
+            this.dgvDSDatPhong.RowHeadersWidth = 51;
+            this.dgvDSDatPhong.RowTemplate.Height = 24;
+            this.dgvDSDatPhong.Size = new System.Drawing.Size(414, 448);
+            this.dgvDSDatPhong.TabIndex = 1;
             // 
             // btnXemChiTiet
             // 
@@ -617,9 +617,10 @@
             this.Name = "frmDatPhong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDatPhong";
+            this.Load += new System.EventHandler(this.frmDatPhong_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSDatPhong)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -686,6 +687,6 @@
         private System.Windows.Forms.Button btnDatPhong;
         private System.Windows.Forms.CheckBox cbxChuyenPhong;
         private System.Windows.Forms.ComboBox cbbLoaiPhong;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDSDatPhong;
     }
 }

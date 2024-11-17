@@ -92,6 +92,7 @@
             this.btnQLDichVu.Text = "Quản Lý Dịch Vụ";
             this.btnQLDichVu.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnQLDichVu.UseVisualStyleBackColor = false;
+            this.btnQLDichVu.Click += new System.EventHandler(this.btnQLDichVu_Click);
             // 
             // btnQLHD
             // 

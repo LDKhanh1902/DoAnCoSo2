@@ -1,4 +1,5 @@
-﻿using System;
+﻿using qunLyKhachSan.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace qunLyKhachSan
 {
     public partial class frmDatPhong : Form
     {
+        DbModelContext db = new DbModelContext();
+
         public frmDatPhong()
         {
             InitializeComponent();
@@ -26,6 +29,11 @@ namespace qunLyKhachSan
         {
             frmChiTietDatPhong chiTietDatPhong = new frmChiTietDatPhong();
             chiTietDatPhong.Show();
+        }
+
+        private void frmDatPhong_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

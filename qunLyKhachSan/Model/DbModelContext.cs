@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,5 +27,23 @@ namespace qunLyKhachSan.Model
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<Account> Accounts { get; set; }
+
+        public DbSet<Room> Rooms { get; set; }
+
+        public DbSet<RoomType> RoomTypes { get; set; }
+
+        public DbSet<Service> Services { get; set; }
+
+        public DbSet<Bill> Bills {  get; set; } 
+
+        public DbSet<BillDetail> BillDetails { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Room>()
+                .HasRequired(r => r.RoomType)
+                .WithMany(rt => rt.Rooms)
+                .HasForeignKey(r => r.TypeRoomID);
+        }
     }
 }
