@@ -40,12 +40,12 @@
             this.btnDatPhong = new System.Windows.Forms.Button();
             this.cbxChuyenPhong = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbbMaPhong = new System.Windows.Forms.ComboBox();
+            this.cbbTenLoai = new System.Windows.Forms.ComboBox();
             this.txtGia = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtTenLoaiPhong = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtSoNguoiToiDa = new System.Windows.Forms.TextBox();
-            this.txtMaLoaiPhong = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -138,6 +138,7 @@
             this.dgvDSDatPhong.RowTemplate.Height = 24;
             this.dgvDSDatPhong.Size = new System.Drawing.Size(414, 448);
             this.dgvDSDatPhong.TabIndex = 1;
+            this.dgvDSDatPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSDatPhong_CellClick);
             // 
             // btnXemChiTiet
             // 
@@ -160,7 +161,7 @@
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.groupBox6.Location = new System.Drawing.Point(430, 241);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(200, 290);
+            this.groupBox6.Size = new System.Drawing.Size(200, 289);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Chức Năng:";
@@ -191,6 +192,7 @@
             this.btnDatPhong.TabIndex = 1;
             this.btnDatPhong.Text = "Đặt Phòng:";
             this.btnDatPhong.UseVisualStyleBackColor = true;
+            this.btnDatPhong.Click += new System.EventHandler(this.btnDatPhong_Click);
             // 
             // cbxChuyenPhong
             // 
@@ -204,12 +206,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbbMaPhong);
+            this.groupBox2.Controls.Add(this.cbbTenLoai);
             this.groupBox2.Controls.Add(this.txtGia);
             this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.txtTenLoaiPhong);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.txtSoNguoiToiDa);
-            this.groupBox2.Controls.Add(this.txtMaLoaiPhong);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
@@ -219,6 +221,24 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông Tin Loại Phòng";
+            // 
+            // cbbMaPhong
+            // 
+            this.cbbMaPhong.FormattingEnabled = true;
+            this.cbbMaPhong.Location = new System.Drawing.Point(10, 43);
+            this.cbbMaPhong.Name = "cbbMaPhong";
+            this.cbbMaPhong.Size = new System.Drawing.Size(184, 26);
+            this.cbbMaPhong.TabIndex = 4;
+            this.cbbMaPhong.SelectedIndexChanged += new System.EventHandler(this.cbbMaPhong_SelectedIndexChanged);
+            // 
+            // cbbTenLoai
+            // 
+            this.cbbTenLoai.FormattingEnabled = true;
+            this.cbbTenLoai.Location = new System.Drawing.Point(10, 93);
+            this.cbbTenLoai.Name = "cbbTenLoai";
+            this.cbbTenLoai.Size = new System.Drawing.Size(184, 26);
+            this.cbbTenLoai.TabIndex = 4;
+            this.cbbTenLoai.SelectedIndexChanged += new System.EventHandler(this.cbbTenLoai_SelectedIndexChanged);
             // 
             // txtGia
             // 
@@ -238,15 +258,6 @@
             this.label18.TabIndex = 1;
             this.label18.Text = "Số Người Tối Đa:";
             // 
-            // txtTenLoaiPhong
-            // 
-            this.txtTenLoaiPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTenLoaiPhong.Location = new System.Drawing.Point(10, 93);
-            this.txtTenLoaiPhong.Name = "txtTenLoaiPhong";
-            this.txtTenLoaiPhong.ReadOnly = true;
-            this.txtTenLoaiPhong.Size = new System.Drawing.Size(184, 24);
-            this.txtTenLoaiPhong.TabIndex = 2;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -264,15 +275,6 @@
             this.txtSoNguoiToiDa.ReadOnly = true;
             this.txtSoNguoiToiDa.Size = new System.Drawing.Size(184, 24);
             this.txtSoNguoiToiDa.TabIndex = 2;
-            // 
-            // txtMaLoaiPhong
-            // 
-            this.txtMaLoaiPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaLoaiPhong.Location = new System.Drawing.Point(10, 40);
-            this.txtMaLoaiPhong.Name = "txtMaLoaiPhong";
-            this.txtMaLoaiPhong.ReadOnly = true;
-            this.txtMaLoaiPhong.Size = new System.Drawing.Size(184, 24);
-            this.txtMaLoaiPhong.TabIndex = 2;
             // 
             // label16
             // 
@@ -480,6 +482,7 @@
             this.btnTimKiem.TabIndex = 3;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtTimKiem
             // 
@@ -673,9 +676,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtSoNguoiToiDa;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox txtTenLoaiPhong;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtMaLoaiPhong;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cbbQuocTich;
         private System.Windows.Forms.ComboBox cbbGioiTinh;
@@ -688,5 +689,7 @@
         private System.Windows.Forms.CheckBox cbxChuyenPhong;
         private System.Windows.Forms.ComboBox cbbLoaiPhong;
         private System.Windows.Forms.DataGridView dgvDSDatPhong;
+        private System.Windows.Forms.ComboBox cbbTenLoai;
+        private System.Windows.Forms.ComboBox cbbMaPhong;
     }
 }

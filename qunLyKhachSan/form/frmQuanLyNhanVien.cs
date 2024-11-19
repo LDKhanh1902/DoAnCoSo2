@@ -38,17 +38,17 @@ namespace qunLyKhachSan
         private void frmQuanLyNhanVien_Load(object sender, EventArgs e)
         {
             var employees = from em in db.Employees
-                            join p in db.Positions on em.POSITIONID equals p.ID 
+                            join p in db.Positions on em.PositionID equals p.ID 
                             select new { 
                                 em.ID, 
-                                em.NAME, 
-                                em.ADDRESS, 
+                                em.Name, 
+                                em.Address, 
                                 em.CCCD, 
-                                em.DATEOFBIRTH,
-                                PositionName = p.NAME, 
-                                em.GENDER, 
-                                em.EMAIL, 
-                                em.PHONENUMBER };
+                                em.DateOfBirth,
+                                PositionName = p.Name, 
+                                em.Gender, 
+                                em.Email, 
+                                em.PhoneNumber };
             dgvEmployee.DataSource = employees.ToList();
         }
 
@@ -93,21 +93,21 @@ namespace qunLyKhachSan
 
             // Lấy ID của vị trí từ cơ sở dữ liệu
             var id_pos = db.Positions
-                        .Where(p => p.NAME == cbbLoaiNhanVien.Text)
+                        .Where(p => p.Name == cbbLoaiNhanVien.Text)
                         .Select(p => p.ID)
                         .FirstOrDefault();
 
             // Tạo một đối tượng nhân viên mới
             var newEmployee = new Employee
             {
-                NAME = txtName.Text,
-                ADDRESS = txtDiaChi.Text,
+                Name = txtName.Text,
+                Address = txtDiaChi.Text,
                 CCCD = txtCCCD.Text,
-                DATEOFBIRTH = dtpNgaySinh.Value,
-                POSITIONID = id_pos,
-                GENDER = cbbGioiTinh.Text,
-                EMAIL = txtEmail.Text,
-                PHONENUMBER = txtSDT.Text
+                DateOfBirth = dtpNgaySinh.Value,
+                PositionID = id_pos,
+                Gender = cbbGioiTinh.Text,
+                Email = txtEmail.Text,
+                PhoneNumber = txtSDT.Text
             };
 
             try
@@ -148,7 +148,7 @@ namespace qunLyKhachSan
             int employeeId = Convert.ToInt32(selectedRow.Cells["ID"].Value); // Giả sử có cột EmployeeId
             // Lấy ID của vị trí từ cơ sở dữ liệu
             var id_pos = db.Positions
-                        .Where(p => p.NAME == cbbLoaiNhanVien.Text)
+                        .Where(p => p.Name == cbbLoaiNhanVien.Text)
                         .Select(p => p.ID)
                         .FirstOrDefault();
 
@@ -156,14 +156,14 @@ namespace qunLyKhachSan
             var updatedEmployee = new Employee
             {
                 ID = employeeId,
-                NAME = txtName.Text,
-                ADDRESS = txtDiaChi.Text,
+                Name = txtName.Text,
+                Address = txtDiaChi.Text,
                 CCCD = txtCCCD.Text,
-                DATEOFBIRTH = dtpNgaySinh.Value,
-                POSITIONID = id_pos,
-                GENDER = cbbGioiTinh.Text,
-                EMAIL = txtEmail.Text,
-                PHONENUMBER = txtSDT.Text
+                DateOfBirth = dtpNgaySinh.Value,
+                PositionID = id_pos,
+                Gender = cbbGioiTinh.Text,
+                Email = txtEmail.Text,
+                PhoneNumber = txtSDT.Text
             };
 
             frmQuanLyNhanVien_Load(sender,e);

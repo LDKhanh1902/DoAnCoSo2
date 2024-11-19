@@ -13,11 +13,9 @@ namespace qunLyKhachSan.Model
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
-        [Column("TYPEROOMID")]
         public int TypeRoomID { get; set; }
-        public string Status { get; set; } = "Trống"; // Giá trị mặc định
+        public string Status { get; set; }
 
-        // Navigation property
         public virtual RoomType RoomType { get; set; }
         public virtual ICollection<Bill> Bills { get; set; }
     }

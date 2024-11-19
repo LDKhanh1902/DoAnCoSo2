@@ -9,18 +9,19 @@ namespace qunLyKhachSan.Model
 {
     internal class Customer
     {
-        public int ID { get; set; } // ID
-        public string NAME { get; set; } // Tên khách hàng
-        public string ADDRESS { get; set; } // Địa chỉ
-        public string CCCD { get; set; } // Số căn cước công dân
-        public DateTime DATEOFBIRTH { get; set; } // Ngày sinh
-        public int COUNTRYID { get; set; }
-        public int CUSTOMERTYPEID { get; set; }
-        public string GENDER { get; set; } // Giới tính
-        public string EMAIL { get; set; } // Địa chỉ email
-        public string PHONENUMBER { get; set; } // Số điện thoại
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string CCCD { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public int CountryID { get; set; }
+        public int CustomerTypeID { get; set; }
+        public string Gender { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public CustomerType CustomerType { get; set; }
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
+        public virtual CustomerType CustomerType { get; set; }
+        public virtual ICollection<Bill> Bills { get; set; }
     }
 }

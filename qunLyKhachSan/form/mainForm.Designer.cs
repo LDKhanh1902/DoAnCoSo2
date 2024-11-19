@@ -109,6 +109,7 @@
             this.btnQLHD.Text = "Quản Lý\r\nHóa Đơn";
             this.btnQLHD.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnQLHD.UseVisualStyleBackColor = false;
+            this.btnQLHD.Click += new System.EventHandler(this.btnQLHD_Click);
             // 
             // btnQLKhachHang
             // 

@@ -174,7 +174,6 @@
     <Compile Include="form\frmThemDichVu.Designer.cs">
       <DependentUpon>frmThemDichVu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Bill.cs" />
     <Compile Include="Model\BillDetail.cs" />
     <Compile Include="Model\Country.cs" />

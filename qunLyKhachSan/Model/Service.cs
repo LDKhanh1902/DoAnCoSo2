@@ -12,7 +12,6 @@ namespace qunLyKhachSan.Model
         public string Name { get; set; }
         public decimal Price { get; set; }
 
-        // Navigation property
         public virtual ICollection<BillDetail> BillDetails { get; set; }
     }
 }

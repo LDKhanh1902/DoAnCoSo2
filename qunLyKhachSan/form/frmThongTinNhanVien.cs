@@ -29,41 +29,41 @@ namespace qunLyKhachSan
         private void frmThongTinNhanVien_Load(object sender, EventArgs e)
         {
             var info = (from em in db.Employees
-                                       join p in db.Positions on em.POSITIONID equals p.ID
-                                       where em.EMAIL == User.UserName
+                                       join p in db.Positions on em.PositionID equals p.ID
+                                       where em.Email == User.UserName
                                        select new
                                        {
                                            em.ID,
-                                           em.NAME,
-                                           em.ADDRESS,
+                                           em.Name,
+                                           em.Address,
                                            em.CCCD,
-                                           em.DATEOFBIRTH,
-                                           PositionName = p.NAME,
-                                           em.DATEOFJOINING,
-                                           em.URLIMAGE,
-                                           em.GENDER,
-                                           em.EMAIL,
-                                           em.PHONENUMBER
+                                           em.DateOfBirth,
+                                           PositionName = p.Name,
+                                           em.DateOfJoining,
+                                           em.UrlImage,
+                                           em.Gender,
+                                           em.Email,
+                                           em.PhoneNumber
                                        }).FirstOrDefault();
 
             if (info != null)
             {
-                txtSDT.Text = info.PHONENUMBER;
+                txtSDT.Text = info.PhoneNumber;
                 txtCCCD.Text = info.CCCD;
-                dtpNgaySinh.Value = info.DATEOFBIRTH;
-                dtpNgayVaoLam.Value = info.DATEOFJOINING;
-                txttenDangNhap.Text = info.EMAIL;
-                txtTenHienthi.Text = info.NAME;
-                labTenHienThi.Text = info.NAME;
+                dtpNgaySinh.Value = info.DateOfBirth;
+                dtpNgayVaoLam.Value = info.DateOfJoining;
+                txttenDangNhap.Text = info.Email;
+                txtTenHienthi.Text = info.Name;
+                labTenHienThi.Text = info.Name;
                 txtLoaiTaiKhoan.Text = info.PositionName;
-                txttenDangNhap.Text += info.EMAIL;
-                cbbGioiTinh.Text = info.GENDER;
-                txtDiaChi.Text = info.ADDRESS;
+                txttenDangNhap.Text += info.Email;
+                cbbGioiTinh.Text = info.Gender;
+                txtDiaChi.Text = info.Address;
 
                 // Hiển thị ảnh hiện tại của nhân sb
-                if (!string.IsNullOrEmpty(info.URLIMAGE) && File.Exists(info.URLIMAGE))
+                if (!string.IsNullOrEmpty(info.UrlImage) && File.Exists(info.UrlImage))
                 {
-                    ptbAnhNhanVien.Image = Image.FromFile(info.URLIMAGE);
+                    ptbAnhNhanVien.Image = Image.FromFile(info.UrlImage);
                 }
             }
         }
@@ -88,12 +88,12 @@ namespace qunLyKhachSan
                 try
                 {
                     // Xóa ảnh cũ nếu tồn tại
-                    var employee = db.Employees.FirstOrDefault(em => em.EMAIL == User.UserName);
-                    if (employee != null && !string.IsNullOrEmpty(employee.URLIMAGE) && File.Exists(employee.URLIMAGE))
+                    var employee = db.Employees.FirstOrDefault(em => em.Email == User.UserName);
+                    if (employee != null && !string.IsNullOrEmpty(employee.UrlImage) && File.Exists(employee.UrlImage))
                     {
                         // Giải phóng tài nguyên của PictureBox trước khi xóa ảnh
                         ptbAnhNhanVien.Image.Dispose();
-                        File.Delete(employee.URLIMAGE);
+                        File.Delete(employee.UrlImage);
                     }
 
                     // Sao chép ảnh mới vào thư mục đích
@@ -102,7 +102,7 @@ namespace qunLyKhachSan
                     // Cập nhật URLIMAGE của nhân viên
                     if (employee != null)
                     {
-                        employee.URLIMAGE = destinationFilePath;
+                        employee.UrlImage = destinationFilePath;
                         db.SaveChanges();
                         MessageBox.Show("Ảnh đã được lưu và thông tin nhân viên đã được cập nhật thành công!");
                     }

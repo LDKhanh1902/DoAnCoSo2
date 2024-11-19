@@ -28,20 +28,20 @@ namespace qunLyKhachSan
         private void frmQuanLyKhachHang_Load(object sender, EventArgs e)
         {
             var query = from c in db.Customer
-                        join ct in db.CustomerTypes on c.CUSTOMERTYPEID equals ct.ID
-                        join ctr in db.Countries on c.COUNTRYID equals ctr.ID
+                        join ct in db.CustomerTypes on c.CustomerTypeID equals ct.ID
+                        join ctr in db.Countries on c.CountryID equals ctr.ID
                         select new
                         {
                             c.ID,
-                            c.NAME,
-                            c.ADDRESS,
+                            c.Name,
+                            c.Address,
                             c.CCCD,
-                            c.DATEOFBIRTH,
-                            CountryName = ctr.NAME,
-                            CustomerTypeName = ct.NAME,
-                            c.GENDER,
-                            c.EMAIL,
-                            c.PHONENUMBER
+                            c.DateOfBirth,
+                            CountryName = ctr.Name,
+                            CustomerTypeName = ct.Name,
+                            c.Gender,
+                            c.Email,
+                            c.PhoneNumber
                         };
 
             dgvCustomer.DataSource = query.ToList();
@@ -66,14 +66,14 @@ namespace qunLyKhachSan
                 return;
             }
 
-            var countryId = db.Countries.Where(c => c.NAME == cbbQuocTich.Text).Select(c => c.ID).FirstOrDefault();
+            var countryId = db.Countries.Where(c => c.Name == cbbQuocTich.Text).Select(c => c.ID).FirstOrDefault();
             if (countryId == 0)
             {
                 MessageBox.Show("Quốc tịch không hợp lệ.");
                 return;
             }
 
-            var typeId = db.CustomerTypes.Where(c => c.NAME == cbbLoaiKhachHang.Text).Select(c => c.ID).FirstOrDefault();
+            var typeId = db.CustomerTypes.Where(c => c.Name == cbbLoaiKhachHang.Text).Select(c => c.ID).FirstOrDefault();
             if (typeId == 0)
             {
                 MessageBox.Show("Loại khách hàng không hợp lệ.");
@@ -94,15 +94,15 @@ namespace qunLyKhachSan
 
             var newCustomer = new Customer
             {
-                NAME = txtHoTen.Text,
-                ADDRESS = txtDiaChi.Text,
+                Name = txtHoTen.Text,
+                Address = txtDiaChi.Text,
                 CCCD = txtCCCD.Text,
-                COUNTRYID = countryId,
-                CUSTOMERTYPEID = typeId,
-                DATEOFBIRTH = dtpNgaySinh.Value,
-                EMAIL = txtEmail.Text,
-                GENDER = cbbGioiTinh.Text,
-                PHONENUMBER = txtPhoneNumber.Text,
+                CountryID = countryId,
+                CustomerTypeID = typeId,
+                DateOfBirth = dtpNgaySinh.Value,
+                Email = txtEmail.Text,
+                Gender = cbbGioiTinh.Text,
+                PhoneNumber = txtPhoneNumber.Text,
             };
 
             db.Customer.Add(newCustomer);
@@ -130,9 +130,9 @@ namespace qunLyKhachSan
             DateTime dateOfBirth = dtpNgaySinh.Value; // Ngày sinh
 
             int typeId = db.CustomerTypes
-                        .Where(t => t.NAME == cbbLoaiKhachHang.Text)
+                        .Where(t => t.Name == cbbLoaiKhachHang.Text)
                         .Select(t => t.ID).FirstOrDefault();
-            int countryId = db.Countries.Where(c => c.NAME == cbbQuocTich.Text)
+            int countryId = db.Countries.Where(c => c.Name == cbbQuocTich.Text)
                                         .Select(c => c.ID).FirstOrDefault();
 
             // Tìm khách hàng trong cơ sở dữ liệu
@@ -149,14 +149,14 @@ namespace qunLyKhachSan
             try
             {
                 // Cập nhật thông tin khách hàng
-                customer.NAME = name;
-                customer.ADDRESS = address;
-                customer.EMAIL = email;
-                customer.GENDER = gender;
-                customer.PHONENUMBER = phoneNumber;
-                customer.DATEOFBIRTH = dateOfBirth;
-                customer.COUNTRYID = countryId;
-                customer.CUSTOMERTYPEID = typeId;
+                customer.Name = name;
+                customer.Address = address;
+                customer.Email = email;
+                customer.Gender = gender;
+                customer.PhoneNumber = phoneNumber;
+                customer.DateOfBirth = dateOfBirth;
+                customer.CountryID = countryId;
+                customer.CustomerTypeID = typeId;
 
                 int result = db.SaveChanges();
                 if (result > 0)
@@ -201,21 +201,21 @@ namespace qunLyKhachSan
         {
             // Tìm kiếm khách hàng dựa trên số CCCD
             var customer = from c in db.Customer
-                           join ct in db.CustomerTypes on c.CUSTOMERTYPEID equals ct.ID
-                           join ctr in db.Countries on c.COUNTRYID equals ctr.ID
+                           join ct in db.CustomerTypes on c.CustomerTypeID equals ct.ID
+                           join ctr in db.Countries on c.CountryID equals ctr.ID
                            where c.CCCD == txtTimKiem.Text
                            select new
                            {
                                c.ID,
-                               c.NAME,
-                               c.ADDRESS,
+                               c.Name,
+                               c.Address,
                                c.CCCD,
-                               c.DATEOFBIRTH,
-                               CountryName = ctr.NAME,
-                               CustomerTypeName = ct.NAME,
-                               c.GENDER,
-                               c.EMAIL,
-                               c.PHONENUMBER
+                               c.DateOfBirth,
+                               CountryName = ctr.Name,
+                               CustomerTypeName = ct.Name,
+                               c.Gender,
+                               c.Email,
+                               c.PhoneNumber
                            };
 
             // Kiểm tra nếu khách hàng tồn tại

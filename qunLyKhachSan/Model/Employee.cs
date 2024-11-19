@@ -9,18 +9,20 @@ namespace qunLyKhachSan.Model
 {
     internal class Employee
     {
-        public int ID { get; set; } // Khóa chính
-        public string NAME { get; set; } // Tên
-        public string ADDRESS { get; set; } // Địa chỉ
-        public string CCCD { get; set; } // Số CCCD
-        public DateTime DATEOFBIRTH { get; set; } // Ngày sinh
-        public string GENDER { get; set; } // Giới tính
-        public string EMAIL { get; set; } // Địa chỉ email
-        public string PHONENUMBER { get; set; } // Số điện thoại
-        public int POSITIONID { get; set; } // Khóa ngoại liên kết với bảng Positions
-        public DateTime DATEOFJOINING { get; set; } = DateTime.Now;
-        public string URLIMAGE { get; set; }    
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string CCCD { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Gender { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public int PositionID { get; set; }
+        public DateTime DateOfJoining { get; set; }
+        public string Password { get; set; }
+        public string UrlImage { get; set; }
 
         public virtual Position Position { get; set; }
+        public virtual ICollection<Bill> Bills { get; set; }
     }
 }

@@ -14,9 +14,8 @@ namespace qunLyKhachSan.Model
         public int RoomID { get; set; }
         public int EmployeeID { get; set; }
         public int CustomerID { get; set; }
-        public bool Status { get; set; } = false;
+        public string Status { get; set; }
 
-        // Navigation properties
         public virtual Room Room { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual Customer Customer { get; set; }

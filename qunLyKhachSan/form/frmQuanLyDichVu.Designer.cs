@@ -88,7 +88,7 @@
             this.btnTenDVPhong.TabIndex = 0;
             this.btnTenDVPhong.Text = "Thêm phòng";
             this.btnTenDVPhong.UseVisualStyleBackColor = true;
-            this.btnTenDVPhong.Click += new System.EventHandler(this.btnTenDVPhong_Click);
+            this.btnTenDVPhong.Click += new System.EventHandler(this.btnThemDVPhong_Click);
             // 
             // label5
             // 

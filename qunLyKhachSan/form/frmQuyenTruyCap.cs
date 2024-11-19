@@ -25,7 +25,7 @@ namespace qunLyKhachSan
             if (lsbPermissionCurrent.Items.Count > 0) // Kiểm tra xem có mục nào không
             {
                 var id_pos = db.Positions
-                        .Where(p => p.NAME == cbbLoaiNhanVien.Text)
+                        .Where(p => p.Name == cbbLoaiNhanVien.Text)
                         .Select(p => p.ID)
                         .FirstOrDefault();
 
@@ -42,7 +42,7 @@ namespace qunLyKhachSan
                 {
                     // Lấy ID của Permission tương ứng với mục đã chọn
                     var id_per = db.Permissions
-                            .Where(p => p.NAME == item.ToString())
+                            .Where(p => p.Name == item.ToString())
                             .Select(p => p.ID)
                             .FirstOrDefault();
 
@@ -54,7 +54,7 @@ namespace qunLyKhachSan
 
                     // Tìm đối tượng Position_Permissions để xóa
                     var positionPermission = db.Position_Permissions
-                            .FirstOrDefault(pp => pp.PERMISSION_ID == id_per && pp.POSITION_ID == id_pos);
+                            .FirstOrDefault(pp => pp.PermissionID == id_per && pp.PositionID == id_pos);
 
                     if (positionPermission != null)
                     {
@@ -87,11 +87,11 @@ namespace qunLyKhachSan
             {
                 
                 var id_pos = db.Positions
-                        .Where(p => p.NAME == cbbLoaiNhanVien.Text)
+                        .Where(p => p.Name == cbbLoaiNhanVien.Text)
                         .Select(p => p.ID)
                         .FirstOrDefault();
                 var id_per = db.Permissions
-                        .Where(p => p.NAME == lsbPermission.SelectedItem.ToString())
+                        .Where(p => p.Name == lsbPermission.SelectedItem.ToString())
                         .Select(p => p.ID)
                         .FirstOrDefault();
 
@@ -102,8 +102,8 @@ namespace qunLyKhachSan
                 }
                 var item = new Position_Permissions()
                 {
-                    POSITION_ID = id_pos,
-                    PERMISSION_ID = id_per
+                    PositionID = id_pos,
+                    PermissionID = id_per
                 };
 
                 db.Position_Permissions.Add(item);
@@ -132,12 +132,12 @@ namespace qunLyKhachSan
 
                 // Lấy ID của Permission tương ứng với mục đã chọn
                 var id_per = db.Permissions
-                        .Where(p => p.NAME == selectedItem.ToString())
+                        .Where(p => p.Name == selectedItem.ToString())
                         .Select(p => p.ID)
                         .FirstOrDefault();
 
                 var id_pos = db.Positions
-                        .Where(p => p.NAME == cbbLoaiNhanVien.Text)
+                        .Where(p => p.Name == cbbLoaiNhanVien.Text)
                         .Select(p => p.ID)
                         .FirstOrDefault();
 
@@ -150,7 +150,7 @@ namespace qunLyKhachSan
 
                 // Tìm đối tượng Position_Permissions để xóa
                 var positionPermission = db.Position_Permissions
-                        .FirstOrDefault(pp => pp.PERMISSION_ID == id_per && pp.POSITION_ID == id_pos); // id_pos cần được xác định trước
+                        .FirstOrDefault(pp => pp.PermissionID == id_per && pp.PositionID == id_pos); // id_pos cần được xác định trước
 
                 db.Position_Permissions.Remove(positionPermission);
                 db.SaveChanges();
@@ -173,7 +173,7 @@ namespace qunLyKhachSan
             if(lsbPermission != null)
             {
                 var id_pos = db.Positions
-                        .Where(p => p.NAME == cbbLoaiNhanVien.Text)
+                        .Where(p => p.Name == cbbLoaiNhanVien.Text)
                         .Select(p => p.ID)
                         .FirstOrDefault();
 
@@ -181,7 +181,7 @@ namespace qunLyKhachSan
                 {
                     // Lấy ID của Permission tương ứng với mục đã chọn
                     var id_per = db.Permissions
-                            .Where(p => p.NAME == item.ToString())
+                            .Where(p => p.Name == item.ToString())
                             .Select(p => p.ID)
                             .FirstOrDefault();
 
@@ -192,8 +192,8 @@ namespace qunLyKhachSan
                     }
                     var new_pp = new Position_Permissions()
                     {
-                        POSITION_ID = id_pos,
-                        PERMISSION_ID = id_per
+                        PositionID = id_pos,
+                        PermissionID = id_per
                     };
 
                     db.Position_Permissions.Add(new_pp);
@@ -212,19 +212,19 @@ namespace qunLyKhachSan
         private void Data_Load(int? id)
         {
             var lstPermission = db.Permissions.ToList();
-            var lstPermissionCurrent = db.Position_Permissions.Where(p => p.POSITION_ID == id).ToList();
+            var lstPermissionCurrent = db.Position_Permissions.Where(p => p.PositionID == id).ToList();
 
-            var currentPermissionIds = lstPermissionCurrent.Select(p => p.PERMISSION_ID).ToHashSet();
+            var currentPermissionIds = lstPermissionCurrent.Select(p => p.PermissionID).ToHashSet();
 
             foreach (var permission in lstPermission)
             {
                 if (currentPermissionIds.Contains(permission.ID))
                 {
-                    lsbPermissionCurrent.Items.Add(permission.NAME);
+                    lsbPermissionCurrent.Items.Add(permission.Name);
                 }
                 else
                 {
-                    lsbPermission.Items.Add(permission.NAME);
+                    lsbPermission.Items.Add(permission.Name);
                 }
             }
         }
@@ -240,7 +240,7 @@ namespace qunLyKhachSan
         private void cbbLoaiNhanVien_SelectedIndexChanged(object sender, EventArgs e)
         {
             var id = db.Positions
-            .Where(p => p.NAME == cbbLoaiNhanVien.Text)
+            .Where(p => p.Name == cbbLoaiNhanVien.Text)
             .Select(p => p.ID)
             .FirstOrDefault();
             try

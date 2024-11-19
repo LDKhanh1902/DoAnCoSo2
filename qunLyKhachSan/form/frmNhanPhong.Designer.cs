@@ -32,13 +32,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDSNhanPhong = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbPhong = new System.Windows.Forms.ComboBox();
             this.cbbLoaiPhong = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtpNgayTra = new System.Windows.Forms.DateTimePicker();
+            this.dtpNgayNhan = new System.Windows.Forms.DateTimePicker();
             this.txtGia = new System.Windows.Forms.TextBox();
             this.txtTenLoaiPhong = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,11 +65,9 @@
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnThoat_frmMain = new System.Windows.Forms.Button();
-            this.dtpNgayNhan = new System.Windows.Forms.DateTimePicker();
-            this.dtpNgayTra = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSNhanPhong)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -100,7 +100,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.dataGridView1);
+            this.groupBox5.Controls.Add(this.dgvDSNhanPhong);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.groupBox5.Location = new System.Drawing.Point(497, 13);
             this.groupBox5.Name = "groupBox5";
@@ -109,15 +109,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Danh sách nhận phòng trong ngày:";
             // 
-            // dataGridView1
+            // dgvDSNhanPhong
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 23);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(560, 502);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDSNhanPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSNhanPhong.Location = new System.Drawing.Point(6, 23);
+            this.dgvDSNhanPhong.Name = "dgvDSNhanPhong";
+            this.dgvDSNhanPhong.RowHeadersWidth = 51;
+            this.dgvDSNhanPhong.RowTemplate.Height = 24;
+            this.dgvDSNhanPhong.Size = new System.Drawing.Size(560, 502);
+            this.dgvDSNhanPhong.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -192,6 +192,24 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm kiếm";
+            // 
+            // dtpNgayTra
+            // 
+            this.dtpNgayTra.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayTra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayTra.Location = new System.Drawing.Point(246, 98);
+            this.dtpNgayTra.Name = "dtpNgayTra";
+            this.dtpNgayTra.Size = new System.Drawing.Size(210, 24);
+            this.dtpNgayTra.TabIndex = 2;
+            // 
+            // dtpNgayNhan
+            // 
+            this.dtpNgayNhan.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayNhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayNhan.Location = new System.Drawing.Point(246, 45);
+            this.dtpNgayNhan.Name = "dtpNgayNhan";
+            this.dtpNgayNhan.Size = new System.Drawing.Size(210, 24);
+            this.dtpNgayNhan.TabIndex = 2;
             // 
             // txtGia
             // 
@@ -329,6 +347,7 @@
             this.btnNhanPhong.TabIndex = 2;
             this.btnNhanPhong.Text = "Nhận Phòng";
             this.btnNhanPhong.UseVisualStyleBackColor = true;
+            this.btnNhanPhong.Click += new System.EventHandler(this.btnNhanPhong_Click);
             // 
             // btnDong
             // 
@@ -347,6 +366,7 @@
             this.btnThemKhachHang.TabIndex = 2;
             this.btnThemKhachHang.Text = "Thêm khách hàng";
             this.btnThemKhachHang.UseVisualStyleBackColor = true;
+            this.btnThemKhachHang.Click += new System.EventHandler(this.btnThemKhachHang_Click);
             // 
             // btnHuy
             // 
@@ -407,24 +427,6 @@
             this.btnThoat_frmMain.UseVisualStyleBackColor = false;
             this.btnThoat_frmMain.Click += new System.EventHandler(this.btnThoat_frmMain_Click);
             // 
-            // dtpNgayNhan
-            // 
-            this.dtpNgayNhan.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayNhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayNhan.Location = new System.Drawing.Point(246, 45);
-            this.dtpNgayNhan.Name = "dtpNgayNhan";
-            this.dtpNgayNhan.Size = new System.Drawing.Size(210, 24);
-            this.dtpNgayNhan.TabIndex = 2;
-            // 
-            // dtpNgayTra
-            // 
-            this.dtpNgayTra.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayTra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayTra.Location = new System.Drawing.Point(246, 98);
-            this.dtpNgayTra.Name = "dtpNgayTra";
-            this.dtpNgayTra.Size = new System.Drawing.Size(210, 24);
-            this.dtpNgayTra.TabIndex = 2;
-            // 
             // frmNhanPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -438,9 +440,10 @@
             this.Name = "frmNhanPhong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTraPhong";
+            this.Load += new System.EventHandler(this.frmNhanPhong_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSNhanPhong)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -488,7 +491,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDSNhanPhong;
         private System.Windows.Forms.DateTimePicker dtpNgayTra;
         private System.Windows.Forms.DateTimePicker dtpNgayNhan;
     }

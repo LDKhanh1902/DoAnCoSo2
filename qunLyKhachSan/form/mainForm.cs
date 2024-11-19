@@ -70,5 +70,10 @@ namespace qunLyKhachSan
         {
             new frmQuanLyDichVu().Show();
         }
+
+        private void btnQLHD_Click(object sender, EventArgs e)
+        {
+            new frmQuanLyHoaDon().Show();
+        }
     }
 }
