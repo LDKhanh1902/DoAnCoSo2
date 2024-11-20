@@ -45,6 +45,7 @@
             this.btnXacNhan.TabIndex = 0;
             this.btnXacNhan.Text = "Đổi mật khẩu";
             this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // txtMatKhauCu
             // 

@@ -17,7 +17,6 @@ namespace qunLyKhachSan.Model
         public int CountryID { get; set; }
         public int CustomerTypeID { get; set; }
         public string Gender { get; set; }
-        public string Email { get; set; }
         public string PhoneNumber { get; set; }
 
         public virtual Country Country { get; set; }

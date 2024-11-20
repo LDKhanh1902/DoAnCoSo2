@@ -40,7 +40,6 @@ namespace qunLyKhachSan
                             CountryName = ctr.Name,
                             CustomerTypeName = ct.Name,
                             c.Gender,
-                            c.Email,
                             c.PhoneNumber
                         };
 
@@ -84,7 +83,6 @@ namespace qunLyKhachSan
             if (string.IsNullOrWhiteSpace(txtHoTen.Text) ||
                 string.IsNullOrWhiteSpace(txtDiaChi.Text) ||
                 string.IsNullOrWhiteSpace(txtCCCD.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text) ||
                 string.IsNullOrWhiteSpace(cbbGioiTinh.Text) ||
                 string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
             {
@@ -100,7 +98,6 @@ namespace qunLyKhachSan
                 CountryID = countryId,
                 CustomerTypeID = typeId,
                 DateOfBirth = dtpNgaySinh.Value,
-                Email = txtEmail.Text,
                 Gender = cbbGioiTinh.Text,
                 PhoneNumber = txtPhoneNumber.Text,
             };
@@ -110,6 +107,7 @@ namespace qunLyKhachSan
             if (result > 0)
             {
                 MessageBox.Show("Thêm khách hàng thành công!");
+                frmQuanLyKhachHang_Load(sender, e);
             }
             else
             {
@@ -124,7 +122,6 @@ namespace qunLyKhachSan
             string cccd = txtCCCD.Text; // Giả sử bạn có một TextBox để nhập CCCD
             string name = txtHoTen.Text; // Tên khách hàng
             string address = txtDiaChi.Text; // Địa chỉ
-            string email = txtEmail.Text; // Email
             string gender = cbbGioiTinh.Text; // Giới tính
             string phoneNumber = txtPhoneNumber.Text; // Số điện thoại
             DateTime dateOfBirth = dtpNgaySinh.Value; // Ngày sinh
@@ -151,7 +148,6 @@ namespace qunLyKhachSan
                 // Cập nhật thông tin khách hàng
                 customer.Name = name;
                 customer.Address = address;
-                customer.Email = email;
                 customer.Gender = gender;
                 customer.PhoneNumber = phoneNumber;
                 customer.DateOfBirth = dateOfBirth;
@@ -162,6 +158,7 @@ namespace qunLyKhachSan
                 if (result > 0)
                 {
                     MessageBox.Show("Cập nhật thông tin khách hàng thành công!");
+                    frmQuanLyKhachHang_Load(sender, e);
                 }
                 else
                 {
@@ -188,7 +185,6 @@ namespace qunLyKhachSan
                 txtCCCD.Text = selectedRow.Cells["CCCD"].Value.ToString();
                 txtHoTen.Text = selectedRow.Cells["NAME"].Value.ToString();
                 txtDiaChi.Text = selectedRow.Cells["ADDRESS"].Value.ToString();
-                txtEmail.Text = selectedRow.Cells["EMAIL"].Value.ToString();
                 cbbGioiTinh.Text = selectedRow.Cells["GENDER"].Value.ToString();
                 txtPhoneNumber.Text = selectedRow.Cells["PHONENUMBER"].Value.ToString();
                 dtpNgaySinh.Value = Convert.ToDateTime(selectedRow.Cells["DATEOFBIRTH"].Value);
@@ -214,7 +210,6 @@ namespace qunLyKhachSan
                                CountryName = ctr.Name,
                                CustomerTypeName = ct.Name,
                                c.Gender,
-                               c.Email,
                                c.PhoneNumber
                            };
 

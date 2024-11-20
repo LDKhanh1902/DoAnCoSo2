@@ -65,6 +65,11 @@ namespace qunLyKhachSan.Model
                 .WithMany(p => p.Employees)
                 .HasForeignKey(e => e.PositionID);
 
+            modelBuilder.Entity<RoomType>()
+                .HasMany(rt => rt.Rooms)
+                .WithRequired(r => r.RoomType) 
+                .HasForeignKey(r => r.TypeRoomID);
+
             modelBuilder.Entity<Room>()
                 .HasRequired(r => r.RoomType)
                 .WithMany(rt => rt.Rooms)

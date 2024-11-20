@@ -435,6 +435,7 @@
             this.Name = "frmSuDungDichVuVaThanhToan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSuDungDichVuVaThanhToan";
+            this.Load += new System.EventHandler(this.frmSuDungDichVuVaThanhToan_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();

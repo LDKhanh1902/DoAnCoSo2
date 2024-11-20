@@ -75,5 +75,15 @@ namespace qunLyKhachSan
         {
             new frmQuanLyHoaDon().Show();
         }
+
+        private void btnDoanhThu_Click(object sender, EventArgs e)
+        {
+            new frmBaoCaoDoanhThu().Show();
+        }
+
+        private void btnDVTT_Click(object sender, EventArgs e)
+        {
+            new frmSuDungDichVuVaThanhToan().Show();
+        }
     }
 }

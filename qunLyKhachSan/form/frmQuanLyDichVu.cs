@@ -23,7 +23,7 @@ namespace qunLyKhachSan
         private void frmQuanLyDichVu_Load(object sender, EventArgs e)
         {
             dgvDichVu.DataSource = db.Services.Select(s=>new { s.ID, s.Name, s.Price }).ToList();
-            cbbMaPhong.DataSource = db.Rooms.Where(r => r.Status != "Trống").Select(r => r.ID).ToList();
+            cbbMaPhong.DataSource = db.Rooms.Where(r => r.Status != "Có người").Select(r => r.ID).ToList();
         }
 
         private void dgvDichVu_CellClick(object sender, DataGridViewCellEventArgs e)

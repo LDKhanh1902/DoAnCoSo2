@@ -186,6 +186,7 @@
     <Compile Include="Model\Position_Permissions.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\RoomType.cs" />
+    <Compile Include="Model\SendMail.cs" />
     <Compile Include="Model\Service.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />

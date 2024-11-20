@@ -143,6 +143,7 @@
             this.btnDVTT.Text = "Sử Dụng Dịch Vụ Và Thanh Toán";
             this.btnDVTT.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnDVTT.UseVisualStyleBackColor = false;
+            this.btnDVTT.Click += new System.EventHandler(this.btnDVTT_Click);
             // 
             // btnQLNV
             // 
@@ -192,6 +193,7 @@
             this.btnDoanhThu.Text = "Thống Kê Doanh Thu";
             this.btnDoanhThu.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnDoanhThu.UseVisualStyleBackColor = false;
+            this.btnDoanhThu.Click += new System.EventHandler(this.btnDoanhThu_Click);
             // 
             // btnNhanPhong
             // 

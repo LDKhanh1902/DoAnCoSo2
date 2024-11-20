@@ -30,5 +30,10 @@ namespace qunLyKhachSan
         {
             dgvQLHD.DataSource = db.Bills.ToList();
         }
+
+        private void btnChiTietHoaDon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

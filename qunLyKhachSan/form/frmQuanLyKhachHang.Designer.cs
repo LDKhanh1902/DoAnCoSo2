@@ -46,10 +46,8 @@
             this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
             this.cbbQuocTich = new System.Windows.Forms.ComboBox();
             this.cbbLoaiKhachHang = new System.Windows.Forms.ComboBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -101,7 +99,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(192, 146);
+            this.label8.Location = new System.Drawing.Point(191, 90);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(111, 20);
             this.label8.TabIndex = 0;
@@ -187,11 +185,9 @@
             this.groupBox2.Controls.Add(this.cbbGioiTinh);
             this.groupBox2.Controls.Add(this.cbbQuocTich);
             this.groupBox2.Controls.Add(this.cbbLoaiKhachHang);
-            this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.txtPhoneNumber);
             this.groupBox2.Controls.Add(this.txtDiaChi);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtCCCD);
             this.groupBox2.Controls.Add(this.label11);
@@ -223,7 +219,7 @@
             // cbbGioiTinh
             // 
             this.cbbGioiTinh.FormattingEnabled = true;
-            this.cbbGioiTinh.Location = new System.Drawing.Point(197, 281);
+            this.cbbGioiTinh.Location = new System.Drawing.Point(196, 225);
             this.cbbGioiTinh.Name = "cbbGioiTinh";
             this.cbbGioiTinh.Size = new System.Drawing.Size(167, 28);
             this.cbbGioiTinh.TabIndex = 2;
@@ -231,7 +227,7 @@
             // cbbQuocTich
             // 
             this.cbbQuocTich.FormattingEnabled = true;
-            this.cbbQuocTich.Location = new System.Drawing.Point(197, 226);
+            this.cbbQuocTich.Location = new System.Drawing.Point(196, 170);
             this.cbbQuocTich.Name = "cbbQuocTich";
             this.cbbQuocTich.Size = new System.Drawing.Size(166, 28);
             this.cbbQuocTich.TabIndex = 2;
@@ -244,18 +240,10 @@
             this.cbbLoaiKhachHang.Size = new System.Drawing.Size(167, 28);
             this.cbbLoaiKhachHang.TabIndex = 2;
             // 
-            // txtEmail
-            // 
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmail.Location = new System.Drawing.Point(196, 113);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(167, 26);
-            this.txtEmail.TabIndex = 1;
-            // 
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPhoneNumber.Location = new System.Drawing.Point(197, 169);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(196, 113);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(167, 26);
             this.txtPhoneNumber.TabIndex = 1;
@@ -269,19 +257,10 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Địa chỉ:";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(192, 90);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 20);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Email:";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(193, 258);
+            this.label11.Location = new System.Drawing.Point(192, 202);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(71, 20);
             this.label11.TabIndex = 0;
@@ -290,7 +269,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(192, 203);
+            this.label10.Location = new System.Drawing.Point(191, 147);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 20);
             this.label10.TabIndex = 0;
@@ -458,8 +437,6 @@
         private System.Windows.Forms.ComboBox cbbLoaiKhachHang;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.ComboBox cbbQuocTich;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtId;

@@ -47,7 +47,7 @@ namespace qunLyKhachSan
                                 em.DateOfBirth,
                                 PositionName = p.Name, 
                                 em.Gender, 
-                                em.Email, 
+                                em.Username, 
                                 em.PhoneNumber };
             dgvEmployee.DataSource = employees.ToList();
         }
@@ -66,7 +66,7 @@ namespace qunLyKhachSan
                 dtpNgaySinh.Value = Convert.ToDateTime(selectedRow.Cells["DATEOFBIRTH"].Value);
                 cbbLoaiNhanVien.Text = selectedRow.Cells["PositionName"].Value.ToString();
                 cbbGioiTinh.Text = selectedRow.Cells["GENDER"].Value.ToString();
-                txtEmail.Text = selectedRow.Cells["EMAIL"].Value.ToString();
+                txtEmail.Text = selectedRow.Cells["Username"].Value.ToString();
                 txtSDT.Text = selectedRow.Cells["PHONENUMBER"].Value.ToString();
             }
         }
@@ -106,7 +106,7 @@ namespace qunLyKhachSan
                 DateOfBirth = dtpNgaySinh.Value,
                 PositionID = id_pos,
                 Gender = cbbGioiTinh.Text,
-                Email = txtEmail.Text,
+                Username = txtEmail.Text,
                 PhoneNumber = txtSDT.Text
             };
 
@@ -162,7 +162,7 @@ namespace qunLyKhachSan
                 DateOfBirth = dtpNgaySinh.Value,
                 PositionID = id_pos,
                 Gender = cbbGioiTinh.Text,
-                Email = txtEmail.Text,
+                Username = txtEmail.Text,
                 PhoneNumber = txtSDT.Text
             };
 

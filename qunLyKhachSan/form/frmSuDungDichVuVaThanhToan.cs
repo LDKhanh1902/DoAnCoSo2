@@ -21,5 +21,10 @@ namespace qunLyKhachSan
         {
             Application.Exit();
         }
+
+        private void frmSuDungDichVuVaThanhToan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

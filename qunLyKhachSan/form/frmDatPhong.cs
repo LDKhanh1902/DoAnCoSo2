@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace qunLyKhachSan
 {
@@ -35,14 +36,14 @@ namespace qunLyKhachSan
         {
             dgvDSDatPhong.DataSource = db.Bills.Where(r=>r.Status == "Đã đặt").ToList();
 
-            cbbTenLoai.DataSource = db.RoomTypes.Select(rt => rt.TypeName).ToList();
+            cbbLoaiPhong.DataSource = db.RoomTypes.Select(rt => rt.TypeName).ToList();
         }
 
         private void btnDatPhong_Click(object sender, EventArgs e)
         {
             // Lấy ID nhân viên dựa trên email người dùng
             int id_em = db.Employees
-                .Where(em => em.Email == User.UserName)
+                .Where(em => em.Username == User.UserName)
                 .Select(em => em.ID)
                 .FirstOrDefault();
 
@@ -85,6 +86,7 @@ namespace qunLyKhachSan
             {
                 db.SaveChanges();
                 MessageBox.Show("Đặt phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmDatPhong_Load(sender, e);
             }
             catch (Exception ex)
             {
@@ -103,33 +105,28 @@ namespace qunLyKhachSan
                 int selectedRoomId = (int)cbbMaPhong.SelectedItem;
 
                 // Lấy giá phòng theo loại phòng
-                var room = db.Rooms.FirstOrDefault(r => r.ID == selectedRoomId);
+                var room = db.Rooms.Where(r => r.ID == selectedRoomId).FirstOrDefault();
                 if (room != null)
                 {
+                    
                     txtGia.Text = room.Price.ToString();
+                    var rtype = db.RoomTypes.Where(rt => rt.ID == room.TypeRoomID).FirstOrDefault();
+                    if (rtype != null)
+                    {
+                        cbbTenLoai.Text = rtype.TypeName;
+                        txtSoNguoiToiDa.Text = rtype.MaxOccupancy.ToString();
+                    }
                 }
                 else
                 {
                     txtGia.Text = "0"; // Hoặc một giá trị mặc định khác
-                }
-
-                // Lấy số người tối đa theo loại phòng
-                var roomType = db.RoomTypes.FirstOrDefault(rt => rt.ID == room.TypeRoomID);
-                if (roomType != null)
-                {
-                    txtSoNguoiToiDa.Text = roomType.MaxOccupancy.ToString();
-                }
-                else
-                {
-                    txtSoNguoiToiDa.Text = "0"; // Hoặc một giá trị mặc định khác
                 }
             }
         }
 
         private void cbbTenLoai_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Cập nhật danh sách phòng theo loại phòng đã chọn
-            cbbMaPhong.DataSource = db.Rooms.Where(r => r.RoomType.TypeName == cbbTenLoai.Text).Select(r => r.ID).ToList();
+            
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -175,6 +172,46 @@ namespace qunLyKhachSan
         private void dgvDSDatPhong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cbbLoaiPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Cập nhật danh sách phòng theo loại phòng đã chọn
+            cbbMaPhong.DataSource = db.Rooms.Where(r => r.RoomType.TypeName == cbbLoaiPhong.Text).Select(r => r.ID).ToList();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra xem trường tên khách hàng có rỗng không
+            if (string.IsNullOrWhiteSpace(txtHovaTen.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên khách hàng.");
+                return;
+            }
+
+            // Tìm hóa đơn dựa trên tên khách hàng
+            var bill = db.Bills.FirstOrDefault(b => b.Customer.CCCD == txtCCCD.Text);
+
+            // Kiểm tra xem hóa đơn có tồn tại không
+            if (bill != null)
+            {
+                // Kiểm tra trạng thái hóa đơn trước khi cập nhật
+                if (bill.Status != "Huỷ")
+                {
+                    bill.Status = "Huỷ";
+                    db.SaveChanges();
+                    MessageBox.Show("Hóa đơn đã được hủy thành công.");
+                    frmDatPhong_Load(sender,e);
+                }
+                else
+                {
+                    MessageBox.Show("Hóa đơn đã được hủy trước đó.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy hóa đơn cho khách hàng này.");
+            }
         }
     }
 }

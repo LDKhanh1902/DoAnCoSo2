@@ -183,6 +183,7 @@
             this.btnHuy.TabIndex = 1;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnDatPhong
             // 
@@ -263,9 +264,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(7, 19);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(112, 18);
+            this.label15.Size = new System.Drawing.Size(80, 18);
             this.label15.TabIndex = 1;
-            this.label15.Text = "Mã Loại Phòng:";
+            this.label15.Text = "Mã Phòng:";
             // 
             // txtSoNguoiToiDa
             // 
@@ -281,9 +282,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(7, 72);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(112, 18);
+            this.label16.Size = new System.Drawing.Size(60, 18);
             this.label16.TabIndex = 1;
-            this.label16.Text = "Tên Loại Phòng";
+            this.label16.Text = "Tên loại";
             // 
             // label17
             // 
@@ -527,6 +528,7 @@
             this.cbbLoaiPhong.Name = "cbbLoaiPhong";
             this.cbbLoaiPhong.Size = new System.Drawing.Size(190, 26);
             this.cbbLoaiPhong.TabIndex = 4;
+            this.cbbLoaiPhong.SelectedIndexChanged += new System.EventHandler(this.cbbLoaiPhong_SelectedIndexChanged);
             // 
             // TimeTraPhong
             // 

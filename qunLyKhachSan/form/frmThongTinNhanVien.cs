@@ -30,7 +30,7 @@ namespace qunLyKhachSan
         {
             var info = (from em in db.Employees
                                        join p in db.Positions on em.PositionID equals p.ID
-                                       where em.Email == User.UserName
+                                       where em.Username == User.UserName
                                        select new
                                        {
                                            em.ID,
@@ -42,7 +42,7 @@ namespace qunLyKhachSan
                                            em.DateOfJoining,
                                            em.UrlImage,
                                            em.Gender,
-                                           em.Email,
+                                           em.Username,
                                            em.PhoneNumber
                                        }).FirstOrDefault();
 
@@ -52,11 +52,11 @@ namespace qunLyKhachSan
                 txtCCCD.Text = info.CCCD;
                 dtpNgaySinh.Value = info.DateOfBirth;
                 dtpNgayVaoLam.Value = info.DateOfJoining;
-                txttenDangNhap.Text = info.Email;
+                txttenDangNhap.Text = info.Username;
                 txtTenHienthi.Text = info.Name;
                 labTenHienThi.Text = info.Name;
                 txtLoaiTaiKhoan.Text = info.PositionName;
-                txttenDangNhap.Text += info.Email;
+                txttenDangNhap.Text += info.Username;
                 cbbGioiTinh.Text = info.Gender;
                 txtDiaChi.Text = info.Address;
 
@@ -88,7 +88,7 @@ namespace qunLyKhachSan
                 try
                 {
                     // Xóa ảnh cũ nếu tồn tại
-                    var employee = db.Employees.FirstOrDefault(em => em.Email == User.UserName);
+                    var employee = db.Employees.FirstOrDefault(em => em.Username == User.UserName);
                     if (employee != null && !string.IsNullOrEmpty(employee.UrlImage) && File.Exists(employee.UrlImage))
                     {
                         // Giải phóng tài nguyên của PictureBox trước khi xóa ảnh

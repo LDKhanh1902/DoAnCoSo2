@@ -196,6 +196,7 @@
             this.Name = "frmBaoCaoDoanhThu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmBaoCaoDoanhThu";
+            this.Load += new System.EventHandler(this.frmBaoCaoDoanhThu_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

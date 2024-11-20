@@ -15,7 +15,7 @@ namespace qunLyKhachSan.Model
         public string CCCD { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
-        public string Email { get; set; }
+        public string Username { get; set; }
         public string PhoneNumber { get; set; }
         public int PositionID { get; set; }
         public DateTime DateOfJoining { get; set; }

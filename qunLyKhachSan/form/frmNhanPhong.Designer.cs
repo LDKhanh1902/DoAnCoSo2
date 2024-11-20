@@ -118,6 +118,7 @@
             this.dgvDSNhanPhong.RowTemplate.Height = 24;
             this.dgvDSNhanPhong.Size = new System.Drawing.Size(560, 502);
             this.dgvDSNhanPhong.TabIndex = 0;
+            this.dgvDSNhanPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSNhanPhong_CellClick);
             // 
             // groupBox2
             // 

@@ -75,6 +75,7 @@
             this.btnChiTietHoaDon.TabIndex = 0;
             this.btnChiTietHoaDon.Text = "Chi tiết hóa đơn";
             this.btnChiTietHoaDon.UseVisualStyleBackColor = true;
+            this.btnChiTietHoaDon.Click += new System.EventHandler(this.btnChiTietHoaDon_Click);
             // 
             // txtGiamGia
             // 

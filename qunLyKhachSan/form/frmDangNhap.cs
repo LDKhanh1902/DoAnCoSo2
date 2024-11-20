@@ -40,7 +40,7 @@ namespace qunLyKhachSan
             //string hashedPassword = HashPassword(txtMatKhau.Text);
 
             // Check if the user exists with the given email and hashed password
-            var login = db.Employees.FirstOrDefault(a => a.PhoneNumber == txtTenDangNhap.Text && a.Password == txtMatKhau.Text);
+            var login = db.Employees.FirstOrDefault(a => a.Username == txtTenDangNhap.Text && a.Password == txtMatKhau.Text);
 
             if (login != null) // Kiểm tra xem có bản ghi nào được tìm thấy không
             {
@@ -49,7 +49,7 @@ namespace qunLyKhachSan
                 new mainForm().Show(); // Hiển thị form chính
 
                 // Lưu thông tin người dùng
-                User.UserName = login.Email; // Lưu tên đăng nhập
+                User.UserName = login.Username; // Lưu tên đăng nhập
                 User.Password = login.Password; // Lưu mật khẩu (nên cân nhắc không lưu mật khẩu)
             }
             else
